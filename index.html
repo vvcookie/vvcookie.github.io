@@ -3,70 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>你的名字 | 个人主页</title>
+  <title>Vera | 个人主页</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
     .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
     .header { text-align: center; padding: 40px 0; }
     .avatar { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
     .projects { margin-top: 40px; }
-    .project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; transition: transform 0.3s; }
+    .project-card:hover { transform: translateY(-5px); }
     .project-card h3 { margin-top: 0; }
     .skills { margin-top: 40px; }
     .skill-tag { display: inline-block; background-color: #f0f0f0; padding: 5px 10px; border-radius: 4px; margin: 5px; }
-    .footer { text-align: center; padding: 20px 0; color: #666; }
+    .footer { text-align: center; padding: 20px 0; color: #666; margin-top: 60px; }
+    .research-interests, .publications, .blog { margin-top: 40px; }
+    .interest-item, .pub-item { margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #eee; }
+    .blog-card { border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+    .timeline { position: relative; margin-top: 30px; padding-left: 30px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #ddd; }
+    .timeline-item { position: relative; margin-bottom: 25px; }
+    .timeline-item::before { content: ''; position: absolute; left: -34px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #333; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://picsum.photos/200/200" alt="你的头像" class="avatar">
-      <h1>你的名字</h1>
-      <p>你的职位/角色（如：软件工程师、数据科学家）</p>
-      <p>一句话描述你的专长或兴趣</p>
-      <a href="https://github.com/你的用户名">GitHub</a> | 
-      <a href="mailto:你的邮箱">邮箱</a> | 
-      <a href="https://linkedin.com/in/你的ID">LinkedIn</a>
+      <img src="https://picsum.photos/200/200" alt="Vera的头像" class="avatar">
+      <h1>Vera Liu</h1>
+      <p>香港中文大学（深圳）数据科学硕士研究生</p>
+      <p>专注于强化学习在复杂系统优化中的应用研究，多智能体协同决策算法设计</p>
+      <a href="https://github.com/vvcookie">GitHub</a> | 
+      <a href="mailto:veraliu8849@163.com">邮箱</a> | 
+      <a href="https://linkedin.com/in/你的ID">LinkedIn</a> |
+      <a href="你的简历PDF链接" target="_blank">简历下载</a>
     </div>
 
+    <!-- 研究兴趣板块 -->
+    <div class="research-interests">
+      <h2>研究方向</h2>
+      <div class="interest-item">
+        <strong>多智能体强化学习</strong>：聚焦动态环境下的协同决策机制，探索注意力机制与迁移学习在决策优化中的融合应用
+      </div>
+      <div class="interest-item">
+        <strong>【待修改----】复杂系统优化</strong>：研究不确定性环境下的路径规划、资源调度问题，关注工业场景的落地可行性
+      </div>
+      <div class="interest-item">
+        <strong>【待修改----】强化学习理论拓展</strong>：探索样本高效的离线强化学习算法，降低实际应用中的数据依赖
+      </div>
+    </div>
+
+    <!-- 项目经历板块 -->
     <div class="projects">
-      <h2>我的项目</h2>
+      <h2>核心项目</h2>
       <div class="project-card">
-        <h3><a href="https://github.com/你的用户名/项目1">项目名称1</a></h3>
-        <p>项目描述：这是一个使用Python和机器学习构建的应用，用于...。</p>
+        <h3><a href="https://github.com/vvcookie/DRL4VRP_EXP">基于多智能体强化学习的多无人机电网巡检系统</a></h3>
+        <p>针对电网巡检场景中无人机飞行时间与能耗的不确定性，设计实时路径规划方案，解决大规模电塔集群的高效巡检问题。<br><br>
+        <strong>技术突破</strong>：创新性地将指针网络与时空注意力机制结合，使智能体同时感知静态电塔分布与动态环境干扰（如风速变化）。<br><br>
+        <strong>工程实现</strong>：搭建包含400+电塔的仿真环境，实现三种基线算法（贪心/VNS/GA）的对比验证，独立完成DRL算法的端到端开发与性能调优。<br><br>
+        <strong>量化成果</strong>：在20架无人机协同场景中，较传统算法缩短路径长度14.8%-31.5%，单次决策耗时＜2ms，满足工业级实时性要求。</p>
         <div>
           <span class="skill-tag">Python</span>
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Multi-Agent RL</span>
+          <span class="skill-tag">Path Planning</span>
         </div>
       </div>
       <div class="project-card">
-        <h3><a href="https://github.com/你的用户名/项目2">项目名称2</a></h3>
-        <p>项目描述：基于Web的实时数据可视化工具，支持...。</p>
+        <h3><a href="https://github.com/你的用户名/项目2">待修改：----------基于强化学习的个性化推荐系统优化</a></h3>
+        <p>待修改：------------针对传统推荐算法存在的"探索-利用"平衡问题，引入深度强化学习框架，实现动态用户兴趣捕捉。<br><br>
+        设计基于Dueling DQN的推荐模型，结合用户行为序列建模，在公开数据集MovieLens-1M上实现点击率提升18.3%，并解决推荐同质化问题。</p>
         <div>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">D3.js</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Reinforcement Learning</span>
+          <span class="skill-tag">推荐系统</span>
         </div>
       </div>
     </div>
 
+    <!-- 学术成果板块 -->
+    <div class="publications">
+      <h2>学术成果</h2>
+      <div class="pub-item">
+        <strong>[已接收] 第一作者</strong>：《Multi-Agent DRL-Based Online Path Planning for UAV Power Tower Inspection with Travel Time Uncertainty》<br>
+        2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC) <br>
+        <em>研究亮点：提出融合时空不确定性的多智能体决策框架，为工业级无人机协同系统提供理论支撑</em>
+      </div>
+    </div>
+
+    <!-- 技术博客板块 -->
+    <div class="blog">
+      <h2>技术笔记</h2>
+      <div class="blog-card">
+        <h3><a href="你的博客链接1">多智能体强化学习中的信用分配问题：从理论到实践</a></h3>
+        <p>解析MARL中个体奖励与全局目标的冲突根源，对比集中式训练与去中心化执行（CTDE）框架的优劣，附MADDPG算法实现细节</p>
+      </div>
+      <div class="blog-card">
+        <h3><a href="你的博客链接2">待修改------------</a></h3>
+        <p>待修改------------从TSP问题切入，详解指针网络的注意力机制设计，对比不同解码策略（贪婪/采样）在路径规划任务中的性能差异</p>
+      </div>
+    </div>
+
+    <!-- 技能板块 -->
     <div class="skills">
-      <h2>我的技能</h2>
+      <h2>技术栈</h2>
       <div>
         <span class="skill-tag">Python</span>
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">机器学习</span>
-        <span class="skill-tag">数据分析</span>
+        <span class="skill-tag">PyTorch/TensorFlow</span>
+        <span class="skill-tag">多智能体强化学习</span>
+        <span class="skill-tag">推荐系统</span>
         <span class="skill-tag">Git</span>
-        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">LaTeX</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+    </div>
+
+    <!-- 教育经历时间线 -->
+    <div class="timeline">
+      <h2>教育经历</h2>
+      <div class="timeline-item">
+        <strong>香港中文大学（深圳）| 数据科学硕士 | 2025-2026</strong><br>
+        研究方向：强化学习与复杂系统优化<br>
+        核心课程：高级机器学习、强化学习、数据结构与算法分析
+      </div>
+      <div class="timeline-item">
+        <strong>华南理工大学 | 计算机科学与技术（全英创新班） | 2021-2025</strong><br>
+        相关经历：美国数学建模竞赛二等奖、优秀毕业论文
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <p>&copy; 2025 你的名字 | 欢迎联系交流</p>
+    <p>&copy; 2025 Vera Liu | 持续更新中，欢迎交流合作</p>
   </div>
 </body>
 </html>
